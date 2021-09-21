@@ -1,0 +1,50 @@
+﻿<Window x:Class="ICraftLauncher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ICraftLauncher"
+        mc:Ignorable="d"
+        Icon="./images/logo.png"
+        ResizeMode="NoResize"
+        Title="ICraft 启动器" Height="450" Width="800" Loaded="onWindowOpen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <ToolBar Style="{StaticResource ToolbarStyle}">
+            <Button Style="{StaticResource ToolbarItemStyle}" Content="启动器" x:Name="TabLauncher" Click="tabOnClick"/>
+            <Button Style="{StaticResource ToolbarItemStyle}" Content="管理" x:Name="TabManager" Click="tabOnClick"/>
+            <Button Style="{StaticResource ToolbarItemStyle}" Content="关于" x:Name="TabAbout" Click="tabOnClick"/>
+        </ToolBar>
+
+        <!-- Launcher -->
+        <StackPanel Grid.Row="1" x:Name="PageLauncher" Visibility="Visible">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="./images/background.png" Viewport="0,-0.2,1.4,1"/>
+            </StackPanel.Background>
+            
+            <TextBlock Text="ICraft Launcher" Style="{StaticResource TitleStyle}"/>
+            <TextBlock Text="By NriotHrreion" Style="{StaticResource SubtitleStyle}"/>
+            <Button Content="启动游戏" x:Name="ButtonLaunch" Style="{StaticResource ButtonLaunchStyle}" Cursor="Hand"/>
+        </StackPanel>
+        
+        <!-- Manager -->
+        <StackPanel Grid.Row="1" x:Name="PageManager" Visibility="Hidden">
+            <TextBlock Text="管理" Style="{StaticResource TitleStyle}"/>
+            <Button x:Name="ButtonInstall" Width="Auto" Height="24" HorizontalAlignment="Left" Margin="23,10,0,10" Padding="4,4,4,4" Content="安装新的版本" Click="installOnClick"/>
+
+            <Label Margin="23,0,0,10" Padding="0,0,0,0" Content="已安装的版本"/>
+            <ListBox x:Name="ListBoxInstalledVersions" Style="{StaticResource ListBoxVersions}">
+                <!-- Installed Versions List -->
+            </ListBox>
+        </StackPanel>
+
+        <!-- About -->
+        <StackPanel Grid.Row="1" x:Name="PageAbout" Visibility="Hidden">
+            <TextBlock Text="关于" Style="{StaticResource TitleStyle}"/>
+        </StackPanel>
+    </Grid>
+</Window>
