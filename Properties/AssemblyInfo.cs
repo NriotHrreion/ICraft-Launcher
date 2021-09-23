@@ -8,11 +8,11 @@ using System.Windows;
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("ICraftLauncher")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("ICraft 游戏启动器")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ICraftLauncher")]
-[assembly: AssemblyCopyright("Copyright ©  2021")]
+[assembly: AssemblyCompany("NriotHrreion")]
+[assembly: AssemblyProduct("ICraft 游戏启动器")]
+[assembly: AssemblyCopyright("Copyright NriotHrreion ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

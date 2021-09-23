@@ -19,6 +19,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel;
 using System.Threading;
+using System.Diagnostics;
 
 namespace ICraftLauncher
 {
@@ -101,10 +102,6 @@ namespace ICraftLauncher
                 fileStream.Close();
             }
 
-            // Install (Unzip)
-            //this.Title = "ICraft 安装 (正在安装)";
-            //ZipFileHelper.UnZip(targetPath, Path.Combine(AppDomain.CurrentDomain.BaseDirectory));
-
             this.Title = "ICraft 安装";
             MessageBox.Show(itemToInstall.Content +" 安装成功");
 
@@ -128,7 +125,7 @@ namespace ICraftLauncher
             {
                 HttpWebRequest request = (HttpWebRequest) WebRequest.Create(versionListUrl);
                 request.Method = "GET";
-                request.UserAgent = "Mozilla / 5.0(Windows NT 10.0; Win64; x64; rv: 74.0) Gecko / 20100101 Firefox / 74.0";
+                request.UserAgent = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.2; .NET CLR 1.1.4322; .NET CLR 2.0.50727)";
                 request.ContentType = "application/json";
 
                 HttpWebResponse response = (HttpWebResponse) request.GetResponse();
@@ -149,7 +146,7 @@ namespace ICraftLauncher
                 this.Title = "ICraft 安装";
             } catch (Exception e)
             {
-                MessageBox.Show(e.ToString());
+                MessageBox.Show("版本列表获取失败 "+ e.ToString());
             }
         }
     }

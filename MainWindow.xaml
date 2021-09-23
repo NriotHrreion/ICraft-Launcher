@@ -28,16 +28,23 @@
             
             <TextBlock Text="ICraft Launcher" Style="{StaticResource TitleStyle}"/>
             <TextBlock Text="By NriotHrreion" Style="{StaticResource SubtitleStyle}"/>
-            <Button Content="启动游戏" x:Name="ButtonLaunch" Style="{StaticResource ButtonLaunchStyle}" Cursor="Hand"/>
+
+            <Label Content="* 启动游戏前, 请设置启动项, 安装依赖 (在'管理'页面中)" Margin="7,10,0,0" FontStyle="Italic" FontSize="8pt"/>
+
+            <!--<Button Content="输出" Width="Auto" Height="24" HorizontalAlignment="Left" Margin="20,0,0,0" Click="dbOnClick"/>-->
+            <Button Content="启动游戏" x:Name="ButtonLaunch" Style="{StaticResource ButtonLaunchStyle}" Cursor="Hand" Click="launchOnClick"/>
         </StackPanel>
         
         <!-- Manager -->
         <StackPanel Grid.Row="1" x:Name="PageManager" Visibility="Hidden">
             <TextBlock Text="管理" Style="{StaticResource TitleStyle}"/>
             <Button x:Name="ButtonInstall" Width="Auto" Height="24" HorizontalAlignment="Left" Margin="23,10,0,10" Padding="4,4,4,4" Content="安装新的版本" Click="installOnClick"/>
+            <Button x:Name="ButtonNpmInstall" Width="Auto" Height="24" HorizontalAlignment="Left" Margin="110,-34,0,10" Padding="4,4,4,4" Content="安装依赖" Click="npmInstallOnClick"/>
+            <Button x:Name="ButtonSetToLaunch" Width="Auto" Height="24" HorizontalAlignment="Left" Margin="173,-35,0,10" Padding="4,4,4,4" Content="设为启动项" Click="setToLaunchOnClick"/>
+            <Button x:Name="ButtonDelete" Width="Auto" Height="24" HorizontalAlignment="Left" Margin="247,-35,0,10" Padding="4,4,4,4" Content="删除" Click="deleteOnClick"/>
 
             <Label Margin="23,0,0,10" Padding="0,0,0,0" Content="已安装的版本"/>
-            <ListBox x:Name="ListBoxInstalledVersions" Style="{StaticResource ListBoxVersions}">
+            <ListBox x:Name="ListBoxInstalledVersions" Style="{StaticResource ListBoxInstalledVersions}" SelectionChanged="installedVersionsOnSelectionChange">
                 <!-- Installed Versions List -->
             </ListBox>
         </StackPanel>
@@ -45,6 +52,11 @@
         <!-- About -->
         <StackPanel Grid.Row="1" x:Name="PageAbout" Visibility="Hidden">
             <TextBlock Text="关于" Style="{StaticResource TitleStyle}"/>
+
+            <Label Content="这是一个ICraft的游戏启动器" Padding="30,20,10,10"/>
+            <Label Content="By: NriotHrreion(开发); Deed(测试)." Padding="30,0,10,10"/>
+            <Label Content="Github Repo: https://github.com/NriotHrreion/ICraft-Launcher  记得去这个项目的Repo中给个star! :P" Padding="30,0,10,10"/>
+            <Label Content="感谢使用与游玩." Padding="30,0,10,10"/>
         </StackPanel>
     </Grid>
 </Window>
